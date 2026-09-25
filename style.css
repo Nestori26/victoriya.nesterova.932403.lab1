@@ -1,0 +1,86 @@
+:root {
+    /* Общие настройки */
+    --font-base: Arial, Helvetica, sans-serif;
+    --font-heading: "Segoe UI", Arial, sans-serif;
+    --space: 20px;
+    --radius: 8px;
+    --transition: 0.3s ease;
+
+    /* Основная палитра (бирюза + белый) */
+    --color-primary: #00707A;   /* основной бирюзовый текст */
+    --color-accent:  #008B8B;   /* бирюзовый акцент (фон) */
+    --color-white:   #ffffff;   /* акцент — белый */
+    --color-light:   #E0F7F7;   /* светло-бирюзовый фон */
+    --color-bg:      #ffffff;   /* фон страницы */
+
+    /* Цвета фокуса для трёх «языков» */
+    --focus-ru: linear-gradient(90deg,#ffffff 33%,#0039A6 33% 66%,#D52B1E 66%);
+    --focus-fr: linear-gradient(90deg,#0055A4 33%,#ffffff 33% 66%,#EF4135 66%);
+    --focus-it: linear-gradient(90deg,#009246 33%,#ffffff 33% 66%,#CE2B37 66%);
+}
+body {
+    background-color: var(--color-bg);       /* Белый фон страницы */
+    color: var(--color-primary);             /* Бирюзовый цвет текста */
+    font-family: var(--font-base);           /* Шрифт для всего документа */
+    margin: 0;                               /* Убираем внешние отступы по умолчанию */
+    line-height: 1.6;                        /* Межстрочный интервал */
+}
+
+header {
+    background-color: var(--color-accent);   /* Бирюзовый фон шапки */
+    color: var(--color-white);               /* Белый цвет текста в шапке */
+    padding: var(--space);                   /* Внутренние отступы шапки */
+    text-align: center;                      /* Выравнивание текста по центру */
+}
+
+header h1 {
+    margin: 0 0 5px;                         /* Убираем отступ сверху и оставляем небольшой снизу */
+    color: var(--color-white);               /* Белый цвет заголовка первого уровня */
+}
+
+header p {
+    margin: 0;                               /* Убираем отступы у параграфа в шапке */
+    color: var(--color-light);               /* Светло-бирюзовый цвет подзаголовка */
+}
+
+main {
+    padding: var(--space);                   /* Внутренние отступы основного контента */
+}
+
+h2 {
+    color: var(--color-primary);             /* Бирюзовый цвет заголовков второго уровня */
+}
+
+aside {
+    padding: var(--space);                   /* Внутренние отступы боковой панели */
+    color: var(--color-primary);             /* Бирюзовый цвет текста в боковой панели */
+}
+
+ul, ol {
+    color: var(--color-primary);             /* Бирюзовый цвет текста в списках */
+}
+
+footer {
+    background-color: var(--color-accent);   /* Бирюзовый фон footer */
+    color: var(--color-white);               /* Белый цвет текста в footer */
+    text-align: center;                      /* Выравнивание текста по центру */
+    padding: 15px;                           /* Внутренние отступы footer */
+}
+
+input, textarea {
+    padding: 10px;                           /* Внутренние отступы полей ввода и текстовой области */
+    font-size: 14px;                         /* Размер шрифта внутри полей */
+}
+
+button {
+    padding: 10px;                           /* Внутренние отступы кнопки */
+    background-color: var(--color-accent);   /* Бирюзовый фон кнопки */
+    color: var(--color-white);               /* Белый цвет текста кнопки */
+    border: none;                            /* Убираем стандартную границу кнопки */
+    cursor: pointer;                         /* Курсор в виде руки при наведении */
+    font-size: 16px;                         /* Размер текста на кнопке */
+}
+
+label {
+    color: var(--color-primary);             /* Бирюзовый цвет подписей к полям формы */
+}
