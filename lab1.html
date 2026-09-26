@@ -4,6 +4,17 @@
     <meta charset="UTF-8"> <!-- Настройка кодировки документа -->
     <title>О себе — Языковой энтузиаст и переводчик</title> <!-- Название страницы -->
 <link rel="stylesheet" href="style.css">
+<style>
+        #skills ul {
+            list-style-position: inside;
+            padding-left: 0;
+            text-align: left;
+            max-width: 420px;
+        }
+        #skills li {
+            padding: 4px 0;
+        }
+    </style>
 </head>
 <body>
     <header> <!-- Шапка страницы -->
@@ -14,7 +25,7 @@
         </span>
     </header>
     <main> <!-- Основной контент страницы -->
-        <section> <!-- Секция с навыками -->
+        <section id="skills"> <!-- Секция с навыками -->
             <h2>Навыки</h2>
             <ul> <!-- Маркированный список навыков -->
                 <li>Письменный и устный перевод</li>
@@ -34,7 +45,7 @@
         </section>
         <section> <!-- Секция с формой обратной связи -->
             <h2>Обратная связь</h2>
-            <form action="#" method="post"> <!-- Форма отправки данных на сервер -->
+            <form action="#" method="post" style="flex-direction: column; align-items: flex-start;"> <!-- Форма отправки данных на сервер -->
                 <label for="name">Имя:</label> <!-- Подпись к полю имени -->
                 <input type="text" id="name" name="name" placeholder="Введите ваше имя" data-lang="ru"> <!-- Поле ввода имени -->
 
@@ -59,9 +70,13 @@
             <li>Китайский</li>
         </ul>
     </aside>
-
     <footer> <!-- Нижняя часть страницы -->
         <p>&copy; Нестерова В.А. 2026 год</p> <!-- Копирайт автора -->
+        <p>
+        <a href="https://github.com/Nestori26/victoriya.nesterova.932403.lab1" target="_blank" rel="noopener">
+            Мой профиль на GitHub
+        </a>
+    </p>
     </footer>
 <script>
         // Находим переключатель по id

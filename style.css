@@ -76,13 +76,20 @@ aside {
 ul, ol {
     color: var(--color-primary);             /* Бирюзовый цвет текста в списках */
 }
-
 footer {
-    background-color: var(--color-accent);   /* Бирюзовый фон footer */
-    color: var(--color-white);               /* Белый цвет текста в footer */
-    text-align: center;                      /* Выравнивание текста по центру */
-    padding: 15px;                           /* Внутренние отступы footer */
+    background-color: var(--color-accent);   /* ← БИРЮЗОВЫЙ ФОН У ВСЕГО FOOTER */
+    color: var(--color-white);               /* белый текст */
+    text-align: center;
+    padding: 15px;
 }
+footer a {
+    color: var(--color-light);
+    text-decoration: underline;
+    transition: color var(--transition);
+}
+footer a:visited { color: #17e4e4; }
+footer a:hover   { color: var(--color-white); text-decoration: none; }
+footer a:active  { color: #3b8b96; }
 /* Переключатель языка — <span> */
 .lang-switch {
     display: inline-block;              /* строчный блок — можно задавать отступы */
