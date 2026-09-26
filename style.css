@@ -15,8 +15,25 @@
 
     /* Цвета фокуса для трёх «языков» */
     --focus-ru: linear-gradient(90deg,#ffffff 33%,#0039A6 33% 66%,#D52B1E 66%);
-    --focus-fr: linear-gradient(90deg,#0055A4 33%,#ffffff 33% 66%,#EF4135 66%);
-    --focus-it: linear-gradient(90deg,#009246 33%,#ffffff 33% 66%,#CE2B37 66%);
+    --focus-en: linear-gradient(90deg, #012169 50%, #C8102E 50%); /* 🇬🇧 синий + красный */
+    --focus-ch: linear-gradient(90deg, #DE2910 50%, #FFDE00 50%);/* 🇨🇳 красный + жёлтый */
+}
+html.theme-ru {
+    --color-primary: #00707A;
+    --color-accent:  #008B8B;
+    --color-bg:      #ffffff;
+}
+/* ТЕМА «АНГЛИЙСКИЙ» — синий + красный */
+html.theme-en {
+    --color-primary: #012169;   /* тёмно-синий */
+    --color-accent:  #C8102E;   /* красный */
+    --color-bg:      #ffffff;
+}
+/* ТЕМА «КИТАЙСКИЙ» — красный + жёлтый */
+html.theme-cn {
+    --color-primary: #A50C0C;   /* тёмно-красный  */
+    --color-accent:  #DE2910;   /* красный  */
+    --color-bg:      #FFF8E7;   /* лёгкий кремовый фон */
 }
 body {
     background-color: var(--color-bg);       /* Белый фон страницы */
@@ -66,21 +83,48 @@ footer {
     text-align: center;                      /* Выравнивание текста по центру */
     padding: 15px;                           /* Внутренние отступы footer */
 }
+/* Переключатель языка — <span> */
+.lang-switch {
+    display: inline-block;              /* строчный блок — можно задавать отступы */
+    padding: 6px 14px;                  /* внутренние отступы */
+    background: var(--color-white);     /* белый фон (акцент) */
+    color: var(--color-primary);        /* бирюзовый текст */
+    border-radius: var(--radius);       /* скруглённые углы */
+    cursor: pointer;                    /* курсор-рука при наведении */
+    font-weight: bold;                  /* жирный текст */
+    user-select: none;                  /* нельзя выделить текст мышью */
+    transition: transform var(--transition), box-shadow var(--transition);
+}
 
+.lang-switch:hover {
+    transform: translateY(-2px);        /* приподнимаем на 2px вверх */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* мягкая тень */
+}
+
+.lang-switch:active {
+    transform: translateY(0);           /* возвращаем на место при клике */
+}
+form {
+    display: flex;                           /* Flexbox для выстраивания элементов формы */
+    align-items: center;                     /* Выравнивание элементов по центру по вертикали */
+    flex-wrap: wrap;                         /* Разрешаем перенос элементов на новую строку */
+    gap: 10px;                               /* Расстояние между элементами формы */
+}
 input, textarea {
     padding: 10px;                           /* Внутренние отступы полей ввода и текстовой области */
     font-size: 14px;                         /* Размер шрифта внутри полей */
 }
-
+textarea {
+    vertical-align: middle;                  /* Выравнивание textarea по центру строки относительно подписи */
+}
 button {
     padding: 10px;                           /* Внутренние отступы кнопки */
     background-color: var(--color-accent);   /* Бирюзовый фон кнопки */
     color: var(--color-white);               /* Белый цвет текста кнопки */
     border: none;                            /* Убираем стандартную границу кнопки */
     cursor: pointer;                         /* Курсор в виде руки при наведении */
-    font-size: 16px;                         /* Размер текста на кнопке */
-}
-
+    font-size: 16px;
+}                         /* Размер текста на кнопке */
 label {
     color: var(--color-primary);             /* Бирюзовый цвет подписей к полям формы */
 }

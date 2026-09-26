@@ -9,10 +9,11 @@
     <header> <!-- Шапка страницы -->
         <h1>Нестерова Виктория Александровна</h1> <!-- Имя автора страницы -->
         <p>Языковой энтузиаст и переводчик</p> <!-- Краткое описание деятельности -->
+        <span id="lang-switch" class="lang-switch" title="Переключить язык">
+            🌐 Переключить языковую тему
+        </span>
     </header>
-
     <main> <!-- Основной контент страницы -->
-
         <section> <!-- Секция с навыками -->
             <h2>Навыки</h2>
             <ul> <!-- Маркированный список навыков -->
@@ -62,5 +63,32 @@
     <footer> <!-- Нижняя часть страницы -->
         <p>&copy; Нестерова В.А. 2026 год</p> <!-- Копирайт автора -->
     </footer>
+<script>
+        // Находим переключатель по id
+        const switcher = document.getElementById('lang-switch');
+        // Массив классов-тем (порядок = порядок переключения)
+        const themes = ['theme-ru', 'theme-en', 'theme-cn'];
+        // Названия, которые будут показываться на переключателе
+        const labels = {
+            'theme-ru': 'RU Русский',
+            'theme-en': 'EN English',
+            'theme-cn': 'CN Chineese'
+        };
+        // Индекс активной темы (0 = theme-ru)
+        let themeIndex = 0;
+        // Применяем стартовую тему при загрузке страницы
+        document.documentElement.classList.add(themes[themeIndex]);
+        // Обработчик клика по переключателю
+        switcher.addEventListener('click', () => {
+            // Убираем класс текущей темы с <html>
+            document.documentElement.classList.remove(themes[themeIndex]);
+            // Переходим к следующей теме по кругу
+            themeIndex = (themeIndex + 1) % themes.length;
+            // Добавляем класс новой темы
+            document.documentElement.classList.add(themes[themeIndex]);
+            // Обновляем надпись на переключателе
+            switcher.textContent = labels[themes[themeIndex]];
+        });
+</script>
 </body>
 </html>
