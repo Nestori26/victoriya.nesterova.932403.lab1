@@ -14,7 +14,7 @@
     --color-bg:      #ffffff;   /* фон страницы */
 
     /* Цвета фокуса для трёх «языков» */
-    --focus-ru: linear-gradient(90deg,#ffffff 33%,#0039A6 33% 66%,#D52B1E 66%);
+    --focus-ru: linear-gradient(90deg,#f5f1f1 33%,#0039A6 33% 66%,#D52B1E 66%);
     --focus-en: linear-gradient(90deg, #012169 50%, #C8102E 50%); /* 🇬🇧 синий + красный */
     --focus-ch: linear-gradient(90deg, #DE2910 50%, #FFDE00 50%);/* 🇨🇳 красный + жёлтый */
 }
@@ -116,6 +116,23 @@ input, textarea {
 }
 textarea {
     vertical-align: middle;                  /* Выравнивание textarea по центру строки относительно подписи */
+}
+/* Фокус-рамки по языкам */
+input[data-lang="ru"]:focus,
+textarea[data-lang="ru"]:focus {
+    border-image: var(--focus-ru) 1;
+    outline: none;
+}
+input[data-lang="en"]:focus,
+textarea[data-lang="en"]:focus {
+    border-image: var(--focus-en) 1;
+    outline: none;
+}
+
+input[data-lang="cn"]:focus,
+textarea[data-lang="cn"]:focus {
+    border-image: var(--focus-ch) 1;
+    outline: none;
 }
 button {
     padding: 10px;                           /* Внутренние отступы кнопки */
