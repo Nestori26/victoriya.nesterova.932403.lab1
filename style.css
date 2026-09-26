@@ -44,6 +44,7 @@ body {
 }
 
 header {
+    position: relative;
     background-color: var(--color-accent);   /* Бирюзовый фон шапки */
     color: var(--color-white);               /* Белый цвет текста в шапке */
     padding: var(--space);                   /* Внутренние отступы шапки */
@@ -71,8 +72,33 @@ h2 {
 aside {
     padding: var(--space);                   /* Внутренние отступы боковой панели */
     color: var(--color-primary);             /* Бирюзовый цвет текста в боковой панели */
+    position: relative;
+}
+/* обёртка фото — relative */
+.avatar-wrap {
+    position: relative;
+    display: inline-block;
 }
 
+/* бейдж — absolute position */
+.badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #d90429;
+    color: var(--color-white);
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+/* static-блок */
+.static-note {
+    position: static;
+    font-size: 13px;
+    color: var(--color-primary);
+    margin-top: var(--space);
+}
 ul, ol {
     color: var(--color-primary);             /* Бирюзовый цвет текста в списках */
 }
