@@ -16,7 +16,7 @@
     /* Цвета фокуса для трёх «языков» */
     --focus-ru: linear-gradient(90deg,#f5f1f1 33%,#0039A6 33% 66%,#D52B1E 66%);
     --focus-en: linear-gradient(90deg, #012169 50%, #C8102E 50%); /* 🇬🇧 синий + красный */
-    --focus-ch: linear-gradient(90deg, #DE2910 50%, #FFDE00 50%);/* 🇨🇳 красный + жёлтый */
+    --focus-cn: linear-gradient(90deg, #DE2910 50%, #FFDE00 50%);/* 🇨🇳 красный + жёлтый */
 }
 html.theme-ru {
     --color-primary: #00707A;
@@ -32,7 +32,7 @@ html.theme-en {
 /* ТЕМА «КИТАЙСКИЙ» — красный + жёлтый */
 html.theme-cn {
     --color-primary: #A50C0C;   /* тёмно-красный  */
-    --color-accent:  #DE2910;   /* красный  */
+    --color-accent:  #B01F0A;   /* красный  */
     --color-bg:      #FFF8E7;   /* лёгкий кремовый фон */
 }
 body {
@@ -113,9 +113,9 @@ footer a {
     text-decoration: underline;
     transition: color var(--transition);
 }
-footer a:visited { color: #17e4e4; }
+footer a:visited { color: #ffffff; }
 footer a:hover   { color: var(--color-white); text-decoration: none; }
-footer a:active  { color: #3b8b96; }
+footer a:active  { color: #fff8a8; }
 /* Переключатель языка — <span> */
 .lang-switch {
     display: inline-block;              /* строчный блок — можно задавать отступы */
@@ -145,7 +145,10 @@ form {
 }
 input, textarea {
     padding: 10px;                           /* Внутренние отступы полей ввода и текстовой области */
-    font-size: 14px;                         /* Размер шрифта внутри полей */
+    font-size: 14px;
+    border: 2px solid var(--color-accent);   
+    border-radius: var(--radius);
+    transition: border-color var(--transition);                         /* Размер шрифта внутри полей */
 }
 textarea {
     vertical-align: middle;                  /* Выравнивание textarea по центру строки относительно подписи */
@@ -164,7 +167,7 @@ textarea[data-lang="en"]:focus {
 
 input[data-lang="cn"]:focus,
 textarea[data-lang="cn"]:focus {
-    border-image: var(--focus-ch) 1;
+    border-image: var(--focus-cn) 1;
     outline: none;
 }
 button {
@@ -173,8 +176,8 @@ button {
     color: var(--color-white);               /* Белый цвет текста кнопки */
     border: none;                            /* Убираем стандартную границу кнопки */
     cursor: pointer;                         /* Курсор в виде руки при наведении */
-    font-size: 16px;
-}                         /* Размер текста на кнопке */
+    font-size: 16px; /* Размер текста на кнопке */
+}                         
 label {
     color: var(--color-primary);             /* Бирюзовый цвет подписей к полям формы */
 }
