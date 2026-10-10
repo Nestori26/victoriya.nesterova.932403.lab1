@@ -21,6 +21,15 @@
     <header> <!-- Шапка страницы -->
         <h1>Нестерова Виктория Александровна</h1> <!-- Имя автора страницы -->
         <p>Языковой энтузиаст и переводчик</p> <!-- Краткое описание деятельности -->
+        <nav class="main-nav" aria-label="Основная навигация">
+            <ul class="nav-list">
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#languages">Языки</a></li>
+                <li><a href="#phrases">Фразы</a></li>
+                <li><a href="#contact">Обратная связь</a></li>
+            </ul>
+        </nav>
         <span id="lang-switch" class="lang-switch" title="Переключить язык">
             🌐 Переключить языковую тему
         </span>
@@ -36,7 +45,7 @@
             </ul>
         </section>
 
-        <section>
+        <section id="projects">
             <h2>Проекты</h2> <!-- Заголовок секции проектов -->
             <ol> <!-- Нумерованный список языковых проектов -->
                 <li>Перевод текстов с английского на русский</li>
@@ -44,7 +53,7 @@
                 <li>Подкаст «Языки без границ» о лингвистике</li>
             </ol>
         </section>
-        <section> <!-- Секция с формой обратной связи -->
+        <section id="contact"> <!-- Секция с формой обратной связи -->
             <h2>Обратная связь</h2>
             <form action="#" method="post" style="flex-direction: column; align-items: flex-start;"> <!-- Форма отправки данных на сервер -->
                 <label for="name">Имя:</label> <!-- Подпись к полю имени -->

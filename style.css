@@ -61,10 +61,34 @@ header h1 {
 }
 
 header p {
-    margin: 0;                               /* Убираем отступы у параграфа в шапке */
+    margin: 0 0 12px;                               /* Убираем отступы у параграфа в шапке */
     color: var(--color-light);               /* Светло-бирюзовый цвет подзаголовка */
 }
+.main-nav {
+    margin: 10px 0 15px;
+}
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-list a {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: background-color var(--transition), transform var(--transition);
+}
 
+.nav-list a:hover   { background-color: rgba(255, 255, 255, 0.3); transform: translateY(-2px); }
+.nav-list a:active  { transform: translateY(0); }
+.nav-list a:visited { color: var(--color-white); }
 main {
     padding: var(--space);                   /* Внутренние отступы основного контента */
 }
