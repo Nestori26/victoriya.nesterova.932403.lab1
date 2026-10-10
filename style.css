@@ -12,7 +12,7 @@
     --color-white:   #ffffff;   /* акцент — белый */
     --color-light:   #E0F7F7;   /* светло-бирюзовый фон */
     --color-bg:      #ffffff;   /* фон страницы */
-
+    --color-card-bg: #F4FDFD;
     /* Цвета фокуса для трёх «языков» */
     --focus-ru: linear-gradient(90deg,#f5f1f1 33%,#0039A6 33% 66%,#D52B1E 66%);
     --focus-en: linear-gradient(90deg, #012169 50%, #C8102E 50%); /* 🇬🇧 синий + красный */
@@ -22,18 +22,21 @@ html.theme-ru {
     --color-primary: #00707A;
     --color-accent:  #008B8B;
     --color-bg:      #ffffff;
+    --color-card-bg: #F4FDFD; 
 }
 /* ТЕМА «АНГЛИЙСКИЙ» — синий + красный */
 html.theme-en {
     --color-primary: #012169;   /* тёмно-синий */
     --color-accent:  #C8102E;   /* красный */
     --color-bg:      #ffffff;
+    --color-card-bg: #F4F6FB;
 }
 /* ТЕМА «КИТАЙСКИЙ» — красный + жёлтый */
 html.theme-cn {
     --color-primary: #A50C0C;   /* тёмно-красный  */
     --color-accent:  #B01F0A;   /* красный  */
     --color-bg:      #FFF8E7;   /* лёгкий кремовый фон */
+    --color-card-bg: #FFF3E0;
 }
 *{ box-sizing: border-box; }
 body {
@@ -144,6 +147,29 @@ footer a {
 footer a:visited { color: #ffffff; }
 footer a:hover   { color: var(--color-white); text-decoration: none; }
 footer a:active  { color: #fff8a8; }
+.cards-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+}
+.language-card {
+    flex: 1 1 180px;
+    max-width: 240px;
+    background-color: var(--color-card-bg);
+    padding: 16px;
+    border-radius: var(--radius);
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+.language-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+.language-card .flag {display: block; margin: 0 auto 8px; border-radius: 4px;
+}    
+.language-card h3     { margin: 4px 0; color: var(--color-primary); }
+.language-card .level { margin: 0; font-size: 14px; color: var(--color-accent); font-weight: bold; }
 /* Переключатель языка — <span> */
 .lang-switch {
     display: inline-block;              /* строчный блок — можно задавать отступы */
