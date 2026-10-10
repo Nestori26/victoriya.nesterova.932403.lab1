@@ -284,3 +284,27 @@ button[type="submit"]:active { transform: scale(0.97); }
 label {
     color: var(--color-primary);             /* Бирюзовый цвет подписей к полям формы */
 }
+/* Планшеты — до 900px */
+@media (max-width: 900px) {
+    .phrases-grid {
+        grid-template-columns: repeat(2, 1fr);   /* Grid: 2 колонки */
+    }
+    .language-card {
+        flex: 1 1 calc(50% - 16px);              /* Карточки: по 2 в ряд */
+        max-width: none;
+    }
+}
+
+/* Мобильные — до 600px */
+@media (max-width: 600px) {
+    .nav-list { flex-direction: column; align-items: center; }
+
+    .phrases-grid {
+        grid-template-columns: 1fr;              /* Grid: 1 колонка */
+    }
+    .language-card {
+        flex: 1 1 100%;                          /* Карточки: 1 в ряд */
+    }
+    main   { padding: 12px; }
+    header { padding: 16px; }
+}
