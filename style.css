@@ -170,6 +170,51 @@ footer a:active  { color: #fff8a8; }
 }    
 .language-card h3     { margin: 4px 0; color: var(--color-primary); }
 .language-card .level { margin: 0; font-size: 14px; color: var(--color-accent); font-weight: bold; }
+.phrases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.phrase-card {
+    background-color: var(--color-card-bg);
+    padding: 16px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.phrase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.phrase-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.phrase-head .flag { font-size: 24px; }
+.phrase-head h3    { margin: 0; color: var(--color-primary); }
+
+.phrase-text   { margin: 0; font-size: 18px; font-weight: bold; }
+.transcription { margin: 0; font-size: 14px; color: var(--color-accent); font-style: italic; }
+
+.audio-btn {
+    align-self: flex-start;
+    padding: 6px 14px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color var(--transition), transform var(--transition);
+}
+.audio-btn:hover  { background-color: var(--color-primary); }
+.audio-btn:active { transform: scale(0.96); }
 /* Переключатель языка — <span> */
 .lang-switch {
     display: inline-block;              /* строчный блок — можно задавать отступы */
@@ -224,14 +269,18 @@ textarea[data-lang="cn"]:focus {
     border-image: var(--focus-cn) 1;
     outline: none;
 }
-button {
-    padding: 10px;                           /* Внутренние отступы кнопки */
-    background-color: var(--color-accent);   /* Бирюзовый фон кнопки */
-    color: var(--color-white);               /* Белый цвет текста кнопки */
-    border: none;                            /* Убираем стандартную границу кнопки */
-    cursor: pointer;                         /* Курсор в виде руки при наведении */
-    font-size: 16px; /* Размер текста на кнопке */
-}                         
+button[type="submit"] {
+    padding: 10px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: var(--radius);
+    transition: background-color var(--transition), transform var(--transition);
+}
+button[type="submit"]:hover  { background-color: var(--color-primary); }
+button[type="submit"]:active { transform: scale(0.97); }        
 label {
     color: var(--color-primary);             /* Бирюзовый цвет подписей к полям формы */
 }
