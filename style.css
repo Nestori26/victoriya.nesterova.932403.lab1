@@ -65,7 +65,7 @@ header h1 {
 
 header p {
     margin: 0 0 12px;                               /* Убираем отступы у параграфа в шапке */
-    color: var(--color-light);               /* Светло-бирюзовый цвет подзаголовка */
+    color: var(--color-white);               /* Светло-бирюзовый цвет подзаголовка */
 }
 .main-nav {
     margin: 10px 0 15px;
@@ -140,7 +140,7 @@ footer {
     padding: 15px;
 }
 footer a {
-    color: var(--color-light);
+    color: var(--color-white);
     text-decoration: underline;
     transition: color var(--transition);
 }
@@ -169,7 +169,7 @@ footer a:active  { color: #fff8a8; }
 .language-card .flag {display: block; margin: 0 auto 8px; border-radius: 4px;
 }    
 .language-card h3     { margin: 4px 0; color: var(--color-primary); }
-.language-card .level { margin: 0; font-size: 14px; color: var(--color-accent); font-weight: bold; }
+.language-card .level { margin: 0; font-size: 14px; color: var(--color-primary); font-weight: bold; }
 .phrases-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -200,7 +200,7 @@ footer a:active  { color: #fff8a8; }
 .phrase-head h3    { margin: 0; color: var(--color-primary); }
 
 .phrase-text   { margin: 0; font-size: 18px; font-weight: bold; }
-.transcription { margin: 0; font-size: 14px; color: var(--color-accent); font-style: italic; }
+.transcription { margin: 0; font-size: 14px; color: var(--color-primary); font-style: italic; }
 
 .audio-btn {
     align-self: flex-start;
