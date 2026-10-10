@@ -35,22 +35,26 @@ html.theme-cn {
     --color-accent:  #B01F0A;   /* красный  */
     --color-bg:      #FFF8E7;   /* лёгкий кремовый фон */
 }
+*{ box-sizing: border-box; }
 body {
     background-color: var(--color-bg);       /* Белый фон страницы */
     color: var(--color-primary);             /* Бирюзовый цвет текста */
     font-family: var(--font-base);           /* Шрифт для всего документа */
     margin: 0;                               /* Убираем внешние отступы по умолчанию */
-    line-height: 1.6;                        /* Межстрочный интервал */
+    line-height: 1.6; /* Межстрочный интервал */
+    overflow-x: hidden;    /* запрет горизонтальной прокрутки*/
 }
-
-header {
+img {
+    max-width: 100%;
+    height: auto;
+}
+ header{
     position: relative;
     background-color: var(--color-accent);   /* Бирюзовый фон шапки */
     color: var(--color-white);               /* Белый цвет текста в шапке */
     padding: var(--space);                   /* Внутренние отступы шапки */
     text-align: center;                      /* Выравнивание текста по центру */
 }
-
 header h1 {
     margin: 0 0 5px;                         /* Убираем отступ сверху и оставляем небольшой снизу */
     color: var(--color-white);               /* Белый цвет заголовка первого уровня */
