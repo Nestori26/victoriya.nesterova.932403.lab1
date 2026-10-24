@@ -30,9 +30,9 @@
                 <li><a href="#contact">Обратная связь</a></li>
             </ul>
         </nav>
-        <span id="lang-switch" class="lang-switch" title="Переключить язык">
+        <button type="button" id="lang-switch" class="lang-switch" aria-label="Переключить языковую тему">
             🌐 Переключить языковую тему
-        </span>
+        </button>
     </header>
     <main> <!-- Основной контент страницы -->
         <section id="skills"> <!-- Секция с навыками -->
@@ -82,7 +82,7 @@
                     </header>
                     <p class="phrase-text">Знание — сила.</p>
                     <p class="transcription">[зна́-ни-е — си́-ла]</p>
-                    <button class="audio-btn" type="button" aria-label="Прослушать фразу на русском">▶</button>
+                    <span class="audio-btn" aria-hidden="true">▶</span>
                 </article>
                 <article class="phrase-card" lang="en">
                     <header class="phrase-head">
@@ -91,7 +91,7 @@
                     </header>
                     <p class="phrase-text">Knowledge is power.</p>
                     <p class="transcription">[ˈnɒlɪdʒ ɪz ˈpaʊə]</p>
-                    <button class="audio-btn" type="button" aria-label="Прослушать фразу на английском">▶</button>
+                    <span class="audio-btn" aria-hidden="true">▶</span>
                 </article>
                 <article class="phrase-card" lang="zh">
                     <header class="phrase-head">
@@ -100,13 +100,13 @@
                     </header>
                     <p class="phrase-text">知识就是力量。</p>
                     <p class="transcription">[zhīshi jiùshì lìliàng]</p>
-                    <button class="audio-btn" type="button" aria-label="Прослушать фразу на китайском">▶</button>
+                    <span class="audio-btn" aria-hidden="true">▶</span>
                 </article>
             </div>
         </section>
         <section id="contact"> <!-- Секция с формой обратной связи -->
             <h2>Обратная связь</h2>
-            <form action="#" method="post" style="flex-direction: column; align-items: flex-start;"> <!-- Форма отправки данных на сервер -->
+            <form action="#" method="post" class="contact-form">
                 <label for="name">Имя:</label> <!-- Подпись к полю имени -->
                 <input type="text" id="name" name="name" placeholder="Введите ваше имя" data-lang="ru"> <!-- Поле ввода имени -->
 
@@ -146,7 +146,7 @@
     </p>
     </footer>
 <script>
-        // Находим переключатель по id
+        // Находим переключатель по idria-
         const switcher = document.getElementById('lang-switch');
         // Массив классов-тем (порядок = порядок переключения)
         const themes = ['theme-ru', 'theme-en', 'theme-cn'];
@@ -160,7 +160,7 @@
         let themeIndex = 0;
         // Применяем стартовую тему при загрузке страницы
         document.documentElement.classList.add(themes[themeIndex]);
-        // Обработчик клика по переключателю
+                // Обработчик клика по переключателю
         switcher.addEventListener('click', () => {
             // Убираем класс текущей темы с <html>
             document.documentElement.classList.remove(themes[themeIndex]);
@@ -170,6 +170,9 @@
             document.documentElement.classList.add(themes[themeIndex]);
             // Обновляем надпись на переключателе
             switcher.textContent = labels[themes[themeIndex]];
+            // Обновляем aria-label — чтобы скринридер сообщил активную тему
+            switcher.setAttribute('aria-label',
+                'Текущая тема: ' + labels[themes[themeIndex]] + '. Нажмите для переключения.');
         });
 </script>
 </body>

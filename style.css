@@ -92,6 +92,11 @@ header p {
 .nav-list a:hover   { background-color: rgba(255, 255, 255, 0.3); transform: translateY(-2px); }
 .nav-list a:active  { transform: translateY(0); }
 .nav-list a:visited { color: var(--color-white); }
+.nav-list a:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 2px;
+    background-color: rgba(255, 255, 255, 0.45);
+}
 main {
     padding: var(--space);                   /* Внутренние отступы основного контента */
 }
@@ -201,40 +206,43 @@ footer a:active  { color: #fff8a8; }
 
 .phrase-text   { margin: 0; font-size: 18px; font-weight: bold; }
 .transcription { margin: 0; font-size: 14px; color: var(--color-primary); font-style: italic; }
-
+/* Декоративная иконка воспроизведения (не интерактивная) */
 .audio-btn {
     align-self: flex-start;
     padding: 6px 14px;
     background-color: var(--color-accent);
     color: var(--color-white);
-    border: none;
     border-radius: var(--radius);
-    cursor: pointer;
     font-size: 14px;
-    transition: background-color var(--transition), transform var(--transition);
+    cursor: default;          
 }
-.audio-btn:hover  { background-color: var(--color-primary); }
-.audio-btn:active { transform: scale(0.96); }
 /* Переключатель языка — <span> */
 .lang-switch {
-    display: inline-block;              /* строчный блок — можно задавать отступы */
-    padding: 6px 14px;                  /* внутренние отступы */
-    background: var(--color-white);     /* белый фон (акцент) */
-    color: var(--color-primary);        /* бирюзовый текст */
-    border-radius: var(--radius);       /* скруглённые углы */
-    cursor: pointer;                    /* курсор-рука при наведении */
-    font-weight: bold;                  /* жирный текст */
-    user-select: none;                  /* нельзя выделить текст мышью */
+    padding: 6px 14px;
+    background: var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);   
+    cursor: pointer;
+    font-family: inherit;                      
+    font-size: inherit;
+    font-weight: bold;
+    user-select: none;
     transition: transform var(--transition), box-shadow var(--transition);
 }
-
-.lang-switch:hover {
-    transform: translateY(-2px);        /* приподнимаем на 2px вверх */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* мягкая тень */
+.lang-switch:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
+.lang-switch:focus:not(:focus-visible) {       /* убираем outline при клике мышью */
+    outline: none;
+}
+.lang-switch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 .lang-switch:active {
-    transform: translateY(0);           /* возвращаем на место при клике */
+    transform: translateY(0);
 }
 form {
     display: flex;                           /* Flexbox для выстраивания элементов формы */
@@ -242,12 +250,20 @@ form {
     flex-wrap: wrap;                         /* Разрешаем перенос элементов на новую строку */
     gap: 10px;                               /* Расстояние между элементами формы */
 }
+form.contact-form {
+    flex-direction: column;       /* поля и подписи в столбик */
+    align-items: stretch;          /* растягиваем элементы на всю ширину */
+    gap: 8px;                      /* расстояние между полями */
+}
 input, textarea {
-    padding: 10px;                           /* Внутренние отступы полей ввода и текстовой области */
+    padding: 10px;
     font-size: 14px;
-    border: 2px solid var(--color-accent);   
+    border: 2px solid var(--color-accent);
     border-radius: var(--radius);
-    transition: border-color var(--transition);                         /* Размер шрифта внутри полей */
+    width: 100%;            /* ← НОВОЕ: поле занимает всю доступную ширину */
+    box-sizing: border-box; /* ← НОВОЕ: padding и border входят в width */
+    font-family: inherit;    /* ← НОВОЕ: наследуем шрифт (иначе у input системный) */
+    transition: border-color var(--transition);
 }
 textarea {
     vertical-align: middle;                  /* Выравнивание textarea по центру строки относительно подписи */
@@ -256,18 +272,21 @@ textarea {
 input[data-lang="ru"]:focus,
 textarea[data-lang="ru"]:focus {
     border-image: var(--focus-ru) 1;
-    outline: none;
+    outline: 3px solid var(--color-primary);
+    outline-offset: 1px;
 }
 input[data-lang="en"]:focus,
 textarea[data-lang="en"]:focus {
     border-image: var(--focus-en) 1;
-    outline: none;
+    outline: 3px solid var(--color-primary);
+    outline-offset: 1px;
 }
 
 input[data-lang="cn"]:focus,
 textarea[data-lang="cn"]:focus {
     border-image: var(--focus-cn) 1;
-    outline: none;
+    outline: 3px solid var(--color-primary);
+    outline-offset: 1px;
 }
 button[type="submit"] {
     padding: 10px;
@@ -278,6 +297,10 @@ button[type="submit"] {
     font-size: 16px;
     border-radius: var(--radius);
     transition: background-color var(--transition), transform var(--transition);
+}
+button[type="submit"]:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
 }
 button[type="submit"]:hover  { background-color: var(--color-primary); }
 button[type="submit"]:active { transform: scale(0.97); }        
