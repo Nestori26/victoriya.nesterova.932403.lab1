@@ -56,4 +56,16 @@ for (let i = 0; i < wordsPerDay.length; i++) {
 const smallDaysPercent = (smallDaysCount / totalDays) * 100;
 // Среднее значение за день
 const average = totalWords / totalDays;
-
+/*  6. ВЫВОД ЧЕРЕЗ alert  */
+alert("Всего выучено " + totalWords + " слов, в " + highDays.length + " днях прогресс был высоким");
+/*  7. ВЫВОД В КОНСОЛЬ  */
+console.log("Максимум за один день: " + maxDay + " слов");
+console.log("Дней с малым прогрессом (≤ 10 слов): " + smallDaysCount);
+console.log("Процент дней с малым прогрессом: " + smallDaysPercent.toFixed(2) + "%");
+/*  9. ДОПОЛНИТЕЛЬНОЕ УСЛОВИЕ: если среднее > 30  */
+if (average > 30) {
+    console.log("Отличный темп изучения языка!");
+    console.log("Среднее за день: " + average.toFixed(2) + " слов");
+} else {
+    console.log("Среднее за день: " + average.toFixed(2) + " слов — есть куда расти!");
+}
