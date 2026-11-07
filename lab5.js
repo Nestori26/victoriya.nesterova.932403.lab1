@@ -60,7 +60,6 @@ function createRow(word, translation, saveFlag) {
         console.error('Тело таблицы #dict-body не найдено');
         return;
     }
-
     // Создаём строку
     const tr = document.createElement('tr');
     // Ячейка «Слово»
@@ -156,3 +155,40 @@ function clearDictionary() {
     saveDictionary([]);
     console.log('Словарь очищен');
 }
+/* ПЕРЕКЛЮЧЕНИЕ ТЕМЫ  */
+function toggleTheme() {
+    if (!document.body) {
+        console.error('body не найден');
+        return;
+    }
+    const isDark = document.body.classList.contains('theme-dark');
+    if (isDark) {
+        document.body.classList.remove('theme-dark');
+        document.body.classList.add('theme-light');
+        saveTheme('theme-light');
+        console.log('Тема переключена на светлую');
+    } else {
+        document.body.classList.remove('theme-light');
+        document.body.classList.add('theme-dark');
+        saveTheme('theme-dark');
+        console.log('Тема переключена на тёмную');
+    }
+}
+
+/* СКРЫТИЕ/ПОКАЗ СЛОВАРЯ  */
+function toggleCollapse() {
+    if (!dictSection) {
+        console.error('Секция #dictionary не найдена');
+        return;
+    }
+    const table = dictSection.querySelector('.dict-table');
+    if (!table) {
+        console.error('Таблица .dict-table не найдена');
+        return;
+    }
+    table.classList.toggle('hidden');
+    const isHidden = table.classList.contains('hidden');
+    collapseDictBtn.textContent = isHidden ? 'Развернуть словарь' : 'Свернуть словарь';
+    console.log('Словарь ' + (isHidden ? 'свёрнут' : 'развёрнут'));
+}
+
