@@ -192,3 +192,40 @@ function toggleCollapse() {
     console.log('Словарь ' + (isHidden ? 'свёрнут' : 'развёрнут'));
 }
 
+/* ВОССТАНОВЛЕНИЕ СОСТОЯНИЯ ПРИ ЗАГРУЗКЕ  */
+function restoreState() {
+    // Восстанавливаем тему
+    const savedTheme = loadTheme();
+    document.body.classList.add(savedTheme);
+    console.log('Восстановлена тема: ' + savedTheme);
+    // Восстанавливаем словарь
+    const dict = loadDictionary();
+    if (dict.length > 0) {
+        dict.forEach(function (item) {
+            createRow(item.word, item.translation, false);  // false — не сохранять повторно
+        });
+        console.log('Восстановлено слов: ' + dict.length);
+    } else {
+        console.log('Сохранённый словарь пуст');
+    }
+}
+/* ИНИЦИАЛИЗАЦИЯ И ПРИВЯЗКА СОБЫТИЙ */
+function init() {
+    if (!checkElements()) {
+        console.error('Инициализация прервана: не все элементы найдены');
+        return;
+    }
+    // Привязка обработчиков
+    addWordBtn.addEventListener('click', addWord);
+    clearDictBtn.addEventListener('click', clearDictionary);
+    collapseDictBtn.addEventListener('click', toggleCollapse);
+    themeToggleBtn.addEventListener('click', toggleTheme);
+
+    // Восстановление сохранённого состояния
+    restoreState();
+
+    console.log('=== Лабораторная №5 готова к работе ===');
+}
+
+/* Запускаем после полной загрузки DOM */
+document.addEventListener('DOMContentLoaded', init);
