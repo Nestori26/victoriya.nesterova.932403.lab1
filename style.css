@@ -356,6 +356,19 @@ body.theme-dark .phrase-card {
     background-color: #2a2a2a;
     color: #E0F7F7;
 }
+body.theme-dark .dict-table th,
+body.theme-dark .dict-table td {
+    background-color: #2a2a2a;       /* тёмный фон для всех ячеек */
+    color: #E0F7F7;                  /* светлый текст */
+    border-color: #008B8B;         
+}
+body.theme-dark .dict-table thead {
+    background-color: #004D4D;       /* тёмно-бирюзовый фон шапки */
+    color: #ffffff;
+}
+body.theme-dark .dict-table tbody tr:nth-child(even) {
+    background-color: #1f1f1f;       
+}
 body.theme-dark input,
 body.theme-dark textarea {
     background-color: #333333;
