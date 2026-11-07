@@ -53,3 +53,106 @@ function saveTheme(theme) {
 function loadTheme() {
     return localStorage.getItem(STORAGE_THEME) || 'theme-light';
 }
+/*  ДОБАВЛЕНИЕ СЛОВА В DOM 
+   Создаёт <tr> с тремя ячейками: слово, перевод, кнопка «Удалить» */
+function createRow(word, translation, saveFlag) {
+    if (!dictBody) {
+        console.error('Тело таблицы #dict-body не найдено');
+        return;
+    }
+
+    // Создаём строку
+    const tr = document.createElement('tr');
+    // Ячейка «Слово»
+    const tdWord = document.createElement('td');
+    tdWord.textContent = word;
+    tr.appendChild(tdWord);
+    // Ячейка «Перевод»
+    const tdTrans = document.createElement('td');
+    tdTrans.textContent = translation;
+    tr.appendChild(tdTrans);
+    // Ячейка с кнопкой удаления
+    const tdAction = document.createElement('td');
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.textContent = 'Удалить';
+    delBtn.className = 'row-delete-btn';
+    delBtn.setAttribute('aria-label', 'Удалить слово ' + word);
+    // Обработчик удаления конкретной строки
+    delBtn.addEventListener('click', function () {
+        removeRow(tr);
+    });
+    tdAction.appendChild(delBtn);
+    tr.appendChild(tdAction);
+    // Добавляем строку в таблицу
+    dictBody.appendChild(tr);
+    // Сохраняем в localStorage
+    if (saveFlag) {
+        const dict = loadDictionary();
+        dict.push({ word: word, translation: translation });
+        saveDictionary(dict);
+    }
+}
+/* УДАЛЕНИЕ СТРОКИ С АНИМАЦИЕЙ  */
+function removeRow(tr) {
+    if (!tr) return;
+    tr.classList.add('row-removed');  // запускаем анимацию
+    setTimeout(function () {
+        tr.remove();
+        // Обновляем localStorage после удаления
+        rebuildDictionaryStorage();
+    }, 300);
+}
+/* Пересобираем словарь из текущего DOM после удаления строки */
+function rebuildDictionaryStorage() {
+    if (!dictBody) return;
+    const rows = dictBody.querySelectorAll('tr');
+    const dict = [];
+    rows.forEach(function (row) {
+        const cells = row.querySelectorAll('td');
+        if (cells.length >= 2) {
+            dict.push({
+                word:       cells[0].textContent,
+                translation: cells[1].textContent
+            });
+        }
+    });
+    saveDictionary(dict);
+}
+/*  ДОБАВЛЕНИЕ СЛОВА ЧЕРЕЗ PROMPT  */
+function addWord() {
+    const word = prompt('Введите слово:', '');
+    if (!word) {
+        console.log('Добавление слова отменено пользователем');
+        return;
+    }
+    const translation = prompt('Введите перевод для слова "' + word + '":', '');
+    if (!translation) {
+        console.log('Перевод не введён — слово не добавлено');
+        return;
+    }
+    createRow(word.trim(), translation.trim(), true);
+    console.log('Добавлено слово: ' + word + ' — ' + translation);
+}
+/* ОЧИСТКА ВСЕГО СЛОВАРЯ */
+function clearDictionary() {
+    if (!dictBody) {
+        console.error('Тело таблицы #dict-body не найдено');
+        return;
+    }
+    const rows = dictBody.querySelectorAll('tr');
+    if (rows.length === 0) {
+        alert('Словарь уже пуст');
+        console.log('Словарь пуст — нечего удалять');
+        return;
+    }
+    if (!confirm('Удалить все слова из словаря?')) {
+        console.log('Очистка словаря отменена пользователем');
+        return;
+    }
+    rows.forEach(function (row) {
+        row.remove();
+    });
+    saveDictionary([]);
+    console.log('Словарь очищен');
+}
