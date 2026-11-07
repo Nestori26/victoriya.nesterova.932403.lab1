@@ -331,3 +331,114 @@ label {
     main   { padding: 12px; }
     header { padding: 16px; }
 }
+body.theme-light {
+    background-color: #ffffff;
+    color: #00707A;
+}
+body.theme-light header,
+body.theme-light footer {
+    background-color: #008B8B;
+    color: #ffffff;
+}
+
+/* Тёмная тема */
+body.theme-dark {
+    background-color: #1a1a1a;
+    color: #E0F7F7;
+}
+body.theme-dark header,
+body.theme-dark footer {
+    background-color: #004D4D;
+    color: #ffffff;
+}
+body.theme-dark .language-card,
+body.theme-dark .phrase-card {
+    background-color: #2a2a2a;
+    color: #E0F7F7;
+}
+body.theme-dark input,
+body.theme-dark textarea {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #008B8B;
+}
+
+/* Кнопки управления словарём */
+.dict-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.dict-controls button {
+    padding: 8px 14px;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius);
+    background-color: var(--color-accent);
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: background-color var(--transition), transform var(--transition);
+}
+.dict-controls button:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+.dict-controls button:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+.dict-controls button:active {
+    transform: translateY(0);
+}
+
+/* Таблица словаря */
+.dict-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+.dict-table th,
+.dict-table td {
+    border: 1px solid var(--color-primary);
+    padding: 8px 12px;
+    text-align: left;
+}
+.dict-table thead {
+    background-color: var(--color-accent);
+    color: #ffffff;
+}
+.dict-table tbody tr:nth-child(even) {
+    background-color: var(--color-card-bg);
+}
+
+/* Кнопка удаления внутри строки */
+.dict-table .row-delete-btn {
+    padding: 4px 10px;
+    background-color: #d90429;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.dict-table .row-delete-btn:hover {
+    background-color: #a50c0c;
+}
+.dict-table .row-delete-btn:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Скрытие блока */
+.hidden {
+    display: none !important;
+}
+
+/* Анимация удаления строки */
+.row-removed {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
