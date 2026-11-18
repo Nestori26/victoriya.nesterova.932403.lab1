@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru" class="theme-ru">
+<head>
+    <meta charset="UTF-8"> <!-- Настройка кодировки документа -->
+    <title>О себе — Языковой энтузиаст и переводчик</title> <!-- Название страницы -->
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        #skills ul {
+            list-style-position: inside;
+            padding-left: 0;
+            text-align: left;
+            max-width: 420px;
+        }
+        #skills li {
+            padding: 4px 0;
+        }
+    </style>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a73e8">
+</head>
+<body>
+    <header> <!-- Шапка страницы -->
+        <h1>Нестерова Виктория Александровна</h1> <!-- Имя автора страницы -->
+        <p>Языковой энтузиаст и переводчик</p> <!-- Краткое описание деятельности -->
+        <nav class="main-nav" aria-label="Основная навигация">
+            <ul class="nav-list">
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#languages">Языки</a></li>
+                <li><a href="#phrases">Фразы</a></li>
+                <li><a href="#contact">Обратная связь</a></li>
+            </ul>
+        </nav>
+        <button type="button" id="lang-switch" class="lang-switch" aria-label="Переключить языковую тему">
+            🌐 Переключить языковую тему
+        </button>
+    </header>
+    <main> <!-- Основной контент страницы -->
+        <section id="skills"> <!-- Секция с навыками -->
+            <h2>Навыки</h2>
+            <ul> <!-- Маркированный список навыков -->
+                <li>Письменный и устный перевод</li>
+                <li>Изучение иностранных языков</li>
+                <li>Межкультурная коммуникация</li>
+                <li>Чтение простых произведений на иностранном языке</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <h2>Проекты</h2> <!-- Заголовок секции проектов -->
+            <ol> <!-- Нумерованный список языковых проектов -->
+                <li>Перевод текстов с английского на русский</li>
+                <li>Авторский курс «Первые шаги в китайском языке»</li>
+                <li>Подкаст «Языки без границ» о лингвистике</li>
+            </ol>
+        </section>
+        <section id="languages">
+            <h2>Изучаемые языки</h2>
+            <div class="cards-row">
+                <article class="language-card" lang="ru">
+                    <img class="flag" src="flags/ru.jpg" alt="Флаг России" width="48" height="32">
+                    <h3>Русский</h3>
+                    <p class="level">Родной</p>
+                </article>
+                <article class="language-card" lang="en">
+                    <img class="flag" src="flags/en.jpg" alt="Флаг Великобритании" width="48" height="32">
+                    <h3>English</h3>
+                    <p class="level">B1 — Intermediate</p>
+                </article>
+                <article class="language-card" lang="zh">
+                    <img class="flag" src="flags/cn.jpg" alt="Флаг Китая" width="48" height="32">
+                    <h3>中文</h3>
+                    <p class="level">HSK 1 — Beginner</p>
+                </article>
+            </div>
+        </section>
+        <section id="phrases">
+            <h2>Фраза недели</h2>
+            <div class="phrases-grid">
+                <article class="phrase-card" lang="ru">
+                    <header class="phrase-head">
+                        <span class="flag" aria-hidden="true">🇷🇺</span>
+                        <h3>Русский</h3>
+                    </header>
+                    <p class="phrase-text">Знание — сила.</p>
+                    <p class="transcription">[зна́-ни-е — си́-ла]</p>
+                    <span class="audio-btn" aria-hidden="true">▶</span>
+                </article>
+                <article class="phrase-card" lang="en">
+                    <header class="phrase-head">
+                        <span class="flag" aria-hidden="true">🇬🇧</span>
+                        <h3>English</h3>
+                    </header>
+                    <p class="phrase-text">Knowledge is power.</p>
+                    <p class="transcription">[ˈnɒlɪdʒ ɪz ˈpaʊə]</p>
+                    <span class="audio-btn" aria-hidden="true">▶</span>
+                </article>
+                <article class="phrase-card" lang="zh">
+                    <header class="phrase-head">
+                        <span class="flag" aria-hidden="true">🇨🇳</span>
+                        <h3>中文</h3>
+                    </header>
+                    <p class="phrase-text">知识就是力量。</p>
+                    <p class="transcription">[zhīshi jiùshì lìliàng]</p>
+                    <span class="audio-btn" aria-hidden="true">▶</span>
+                </article>
+            </div>
+        </section>
+        <section id="dictionary">
+            <h2>Мой словарь</h2>
+            <div class="dict-controls">
+                <button type="button" id="add-word-btn">Добавить слово</button>
+                <button type="button" id="clear-dict-btn">Очистить словарь</button>
+                <button type="button" id="collapse-dict-btn">Свернуть словарь</button>
+                <button type="button" id="theme-toggle-btn">Переключить тему</button>
+            </div>
+
+            <table class="dict-table">
+                <thead>
+                    <tr>
+                        <th>Слово</th>
+                        <th>Перевод</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody id="dict-body">
+                    <!-- строки добавляются через JS -->
+                </tbody>
+            </table>
+        </section>
+        <section id="contact"> <!-- Секция с формой обратной связи -->
+            <h2>Обратная связь</h2>
+            <form action="#" method="post" class="contact-form">
+                <label for="name">Имя:</label> <!-- Подпись к полю имени -->
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" data-lang="ru"> <!-- Поле ввода имени -->
+
+                <label for="email">Email:</label> <!-- Подпись к полю email -->
+                <input type="email" id="email" name="email" placeholder="example@mail.com" data-lang="en"> <!-- Поле ввода email -->
+
+                <label for="message">Сообщение:</label> <!-- Подпись к полю сообщения -->
+                <textarea id="message" name="message" placeholder="Ваше сообщение..." data-lang="cn"></textarea> <!-- Многострочное поле ввода -->
+                <button type="submit">Отправить</button> <!-- Кнопка отправки формы -->
+            </form>
+        </section>
+    </main>
+
+    <aside> <!-- Боковая панель -->
+        <h2>Изучение языков</h2> <!-- Заголовок боковой панели -->
+        <!-- обёртка фото и бейдж -->
+        <div class="avatar-wrap">
+            <img src="mem.jpg" alt="Мем на английском языке" width="150" height="150">
+            <span class="badge">new</span>
+        </div>
+        <p>Сейчас я изучаю <strong>английский язык</strong> и мечтаю смотреть любимые фильмы в оригинале.</p>
+        <h3>Любимые языки</h3>
+        <ul>
+            <li>Русский</li>
+            <li>Английский</li>
+            <li>Китайский</li>
+        </ul>
+        <!-- static-блок -->
+        <p class="static-note">Сайт создан в рамках лабораторной работы №3.</p>
+    </aside>
+    <footer> <!-- Нижняя часть страницы -->
+        <p>&copy; Нестерова В.А. 2026 год</p> <!-- Копирайт автора -->
+        <p>
+        <a href="https://github.com/Nestori26/victoriya.nesterova.932403.lab1" target="_blank" rel="noopener">
+            Мой профиль на GitHub
+        </a>
+    </p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Находим переключатель по idria-
+        const switcher = document.getElementById('lang-switch');
+        // Массив классов-тем (порядок = порядок переключения)
+        const themes = ['theme-ru', 'theme-en', 'theme-cn'];
+        // Названия, которые будут показываться на переключателе
+        const labels = {
+            'theme-ru': 'RU Русский',
+            'theme-en': 'EN English',
+            'theme-cn': 'CN Chineese'
+        };
+        // Индекс активной темы (0 = theme-ru)
+        let themeIndex = 0;
+        // Применяем стартовую тему при загрузке страницы
+        document.documentElement.classList.add(themes[themeIndex]);
+                // Обработчик клика по переключателю
+        switcher.addEventListener('click', () => {
+            // Убираем класс текущей темы с <html>
+            document.documentElement.classList.remove(themes[themeIndex]);
+            // Переходим к следующей теме по кругу
+            themeIndex = (themeIndex + 1) % themes.length;
+            // Добавляем класс новой темы
+            document.documentElement.classList.add(themes[themeIndex]);
+            // Обновляем надпись на переключателе
+            switcher.textContent = labels[themes[themeIndex]];
+            // Обновляем aria-label — чтобы скринридер сообщил активную тему
+            switcher.setAttribute('aria-label',
+                'Текущая тема: ' + labels[themes[themeIndex]] + '. Нажмите для переключения.');
+        });
+    </script>
+    <script src="lab5.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(r => console.log('SW registered', r.scope))
+                .catch(e => console.log('SW error', e));
+        }
+    </script>
+</body>
+</html>
