@@ -38,6 +38,15 @@ app.get('/api/uuid', (req, res) => {
         timestamp: new Date().toISOString()
     });
 });
+// 404: маршрут не найден
+app.use((req, res) => {
+    res.status(404).json({ error: 'Not found' });
+});
+// 500: общая обработка ошибок
+app.use((err, req, res, next) => {
+    console.error('Server error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+});
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
