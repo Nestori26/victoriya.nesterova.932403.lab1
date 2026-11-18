@@ -14,7 +14,31 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'about.html'));
 });
-
+const crypto = require('crypto');
+app.get('/api/uuid', (req, res) => {
+    let count = req.query.count;
+    if (count === undefined || count === '') {
+        count = 1;
+    } else {
+        count = Number(count);
+    }
+    if (!Number.isInteger(count) || count < 1 || count > 10) {
+        return res.status(400).json({
+            error: 'Invalid count parameter. Must be integer 1..10.',
+            received: req.query.count
+        });
+    }
+    const uuids = [];
+    for (let i = 0; i < count; i++) {
+        uuids.push(crypto.randomUUID());
+    }
+    res.json({
+        count: count,
+        uuids: uuids,
+        timestamp: new Date().toISOString()
+    });
+});
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
+
