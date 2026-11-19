@@ -337,7 +337,7 @@ body.theme-light {
 }
 body.theme-light header,
 body.theme-light footer {
-    background-color: #008B8B;
+    background-color: var(--color-primary);
     color: #ffffff;
 }
 
@@ -348,7 +348,7 @@ body.theme-dark {
 }
 body.theme-dark header,
 body.theme-dark footer {
-    background-color: #004D4D;
+    background-color: (--color-primary);
     color: #ffffff;
 }
 body.theme-dark .language-card,
