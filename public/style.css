@@ -376,6 +376,22 @@ body.theme-dark textarea {
     border-color: #008B8B;
 }
 
+html.theme-en body.theme-dark {
+    --color-primary: #A5B4FF;   
+    --color-accent:  #FF8E8E;   
+    --color-card-bg: #2a2a4a;   
+}
+
+html.theme-cn body.theme-dark {
+    --color-primary: #FFB8B8;   
+    --color-accent:  #FFD9A0;
+    --color-card-bg: #3a2020;
+}
+html.theme-ru body.theme-dark {
+    --color-primary: #7FE3E3;  
+    --color-accent:  #5FBFBF;
+    --color-card-bg: #1f3a3a;
+}
 /* Кнопки управления словарём */
 .dict-controls {
     display: flex;

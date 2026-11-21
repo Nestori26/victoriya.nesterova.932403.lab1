@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lab6-cache-v1';
+const CACHE_NAME = 'lab6-cache-v2';
 const CACHE_URLS = [
   '/',
   '/about',
