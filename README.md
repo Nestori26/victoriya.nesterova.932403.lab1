@@ -24,6 +24,8 @@ GET /api/uuid — API-эндпоинт, возвращающий JSON.
 - Node.js
 - Express
 - npm
+- crypto	Встроенный модуль Node.js для генерации UUID
+- PWA	Устанавливаемое приложение с офлайн-режимом
 - Service Worker API, Cache API
 - Fetch API
 - JavaScript (ES6+)
